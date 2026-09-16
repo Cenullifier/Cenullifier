@@ -1,0 +1,88 @@
+Sure — here’s a tiny interactive HTML page. Click the button and it changes the background and message.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      text-align: center;
+      transition: background 0.5s;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      background: #6366f1;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #818cf8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1 id="title">Hello, internet 👋</h1>
+    <p id="message">You clicked absolutely nothing yet.</p>
+    <button onclick="doSomething()">Do Something</button>
+  </div>
+
+  <script>
+    function doSomething() {
+      const colors = [
+        "#ef4444",
+        "#f97316",
+        "#eab308",
+        "#22c55e",
+        "#06b6d4",
+        "#3b82f6",
+        "#8b5cf6",
+        "#ec4899"
+      ];
+
+      const messages = [
+        "You did something.",
+        "That was surprisingly effective.",
+        "Congratulations. The button works.",
+        "You have unlocked: absolutely nothing.",
+        "The website is now 37% cooler.",
+        "Behold... a different background."
+      ];
+
+      document.body.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      document.getElementById("message").textContent =
+        messages[Math.floor(Math.random() * messages.length)];
+    }
+  </script>
+
+</body>
+</html>
+```
